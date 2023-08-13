@@ -1,13 +1,12 @@
 "use client";
 
-import { CloseIcon, RightChevronIcon, UpArrowIcon } from "@/components/icons";
-import { cn } from "@/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import { useReducer, useState } from "react";
-import { Modal } from "@/components/modal";
 import { BubbleMessage } from "@/components/bubble";
+import { RightChevronIcon, UpArrowIcon } from "@/components/icons";
+import { ImageBlock } from "@/components/image";
+import { Modal } from "@/components/modal";
 import { variants } from "@/framer-variants";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducer } from "react";
 
 export default function Page() {
   const initialState = {
@@ -126,26 +125,3 @@ export default function Page() {
     </div>
   );
 }
-
-export const ImageBlock = () => {
-  return (
-    <motion.div
-      variants={variants}
-      initial="initial"
-      animate="animate"
-      whileTap="whileTap"
-      whileFocus="whileHover"
-      custom={1}
-      className="w-[200px] h-[250px] relative"
-    >
-      <Image
-        src={"/images/okay.jpg"}
-        alt="umesh"
-        fill={true}
-        className="object-cover rounded-2xl"
-        sizes="200px"
-        priority
-      />
-    </motion.div>
-  );
-};
