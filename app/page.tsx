@@ -7,28 +7,7 @@ import Image from "next/image";
 import { useReducer, useState } from "react";
 import { Modal } from "@/components/modal";
 import { BubbleMessage } from "@/components/bubble";
-
-export const variants = {
-  initial: {
-    opacity: 0,
-    y: -10,
-  },
-  animate: (i: number) => {
-    const delay = i * 0.1;
-    return {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: delay,
-        type: "spring",
-      },
-    };
-  },
-  whileTap: {
-    scale: 1.05,
-  },
-};
+import { variants } from "@/framer-variants";
 
 export default function Page() {
   const initialState = {

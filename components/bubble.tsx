@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { cn } from "@/utils";
-import { variants } from "@/app/page";
+import { variants } from "@/framer-variants";
 
 type BUBBLE_MSG_TYPE = {
   children: React.ReactNode;
