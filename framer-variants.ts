@@ -19,3 +19,20 @@ export const variants = {
     scale: 1.05,
   },
 };
+
+export const typingVariants = {
+  initial: {
+    opacity: 0.5,
+  },
+  animate: (i: number) => {
+    const delay = i * 0.333
+    return {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        delay: delay,
+        repeat: Infinity,
+      }
+    }
+  }
+}

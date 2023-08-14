@@ -4,9 +4,25 @@ import { BubbleMessage } from "@/components/bubble";
 import { RightChevronIcon, UpArrowIcon } from "@/components/icons";
 import { ImageBlock } from "@/components/image";
 import { Modal } from "@/components/modal";
-import { variants } from "@/framer-variants";
+import { TypingIndicator } from "@/components/typing";
+import { typingVariants, variants } from "@/framer-variants";
 import { AnimatePresence, motion } from "framer-motion";
-import { useReducer } from "react";
+import React, { useReducer } from "react";
+
+const LeftWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="flex flex-col items-start w-full mb-4 gap-1">
+      {children}
+    </div>
+  );
+};
+const RightWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="flex flex-col items-end text-right w-full mb-4 gap-1">
+      {children}
+    </div>
+  );
+};
 
 export default function Page() {
   const initialState = {
@@ -47,7 +63,7 @@ export default function Page() {
   };
   return (
     <div className="w-full max-w-[390px] flex flex-col items-center relative">
-      <div className="flex flex-col items-start w-full mb-4 gap-1">
+      <LeftWrapper>
         <ImageBlock />
         <BubbleMessage custom={2}>Hey, Umesh Jain here</BubbleMessage>
         <BubbleMessage custom={3}>india / developing front-end</BubbleMessage>
@@ -89,8 +105,8 @@ export default function Page() {
             />
           </div>
         </motion.div>
-      </div>
-      <div className="flex flex-col items-end text-right w-full mb-4 gap-1">
+      </LeftWrapper>
+      <RightWrapper>
         <BubbleMessage
           custom={6}
           className="bg-blue-600 text-zinc-50 dark:text-zinc-950 flex items-center gap-1"
@@ -112,7 +128,10 @@ export default function Page() {
         >
           email
         </motion.p>
-      </div>
+      </RightWrapper>
+      <LeftWrapper>
+        <TypingIndicator />
+      </LeftWrapper>
       <AnimatePresence>
         {state.modalState && (
           <Modal
