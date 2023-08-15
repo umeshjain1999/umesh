@@ -18,8 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "min-h-screen flex flex-col")}>
-        <main className="p-4 md:p-8 flex justify-center flex-1">
+      <body
+        className={cn(inter.className, "min-h-screen flex flex-col relative")}
+      >
+        <main className="p-4 sm:p-8 flex justify-center flex-1">
           {children}
         </main>
         <footer className="flex justify-center gap-4 p-4 text-zinc-500 text-sm transition-colors duration-300">

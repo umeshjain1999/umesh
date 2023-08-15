@@ -62,7 +62,7 @@ export default function Page() {
     dispatch({ type: "toggleModal" });
   };
   return (
-    <div className="w-full max-w-[390px] flex flex-col items-center relative">
+    <div className="w-full max-w-[390px] flex flex-col items-center sm:relative">
       <LeftWrapper>
         <ImageBlock />
         <BubbleMessage custom={2}>Hey, Umesh Jain here</BubbleMessage>

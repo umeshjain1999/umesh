@@ -35,7 +35,7 @@ const Modal = (props: {
         duration: 0.7,
         bounce: 0.3,
       }}
-      className="absolute bottom-0 left-0 w-full overflow-auto bg-zinc-50 rounded-2xl no-scrollbar shadow-md shadow-zinc-200 dark:shadow-zinc-100"
+      className="absolute bottom-0 left-0 w-full overflow-auto bg-zinc-50 rounded-2xl no-scrollbar shadow-lg shadow-zinc-200 dark:shadow-zinc-100 z-10"
     >
       <motion.div
         onPan={(e, info) => y.set(info.offset.y)}
