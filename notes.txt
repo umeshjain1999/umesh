@@ -1,10 +1,6 @@
 TODO:
-☑️ Modal icons interaction animation
-☑️ decide design of link modal
-☑️ proper content of work, about, links
 ☑️ maybe some animation around the image or background, e.g mesh gradient
 ☑️ Dark mode review
-☑️ responsive or simple version design maybe
 
 RESOURCES:
 Framer motion

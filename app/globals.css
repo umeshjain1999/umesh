@@ -32,6 +32,9 @@ body {
   color: var(--zinc-950);
   background: var(--zinc-50);
 }
+* {
+  user-select: none;
+}
 @layer utilities {
   @variants responsive {
     /* Hide scrollbar for Chrome, Safari and Opera */
