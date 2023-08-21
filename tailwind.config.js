@@ -36,6 +36,10 @@ module.exports = {
         900:"#1e3a8a",
         950:"#172554"
       }
+    },
+    boxShadow: {
+      'default' : 'rgba(0, 0, 0, 0.1) 0px 10px 50px',
+      'dark' : 'rgba(255, 255, 255, 0.1) 0px 10px 50px',
     }
   },
   plugins: [require('@tailwindcss/typography')],

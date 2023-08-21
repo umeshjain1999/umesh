@@ -10,4 +10,4 @@ use case of multi variants and useAnimation https://codesandbox.io/s/framer-moti
 different animation - https://codesandbox.io/u/mattgperry
 mini course - https://egghead.io/courses/animate-react-apps-with-framer-motion-aa83f52c
 https://www.youtube.com/@samselikoff
-https://github.com/framer/motion/issues/385
+https://github.com/framer/motion/issues/385 

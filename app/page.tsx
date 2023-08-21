@@ -5,9 +5,9 @@ import { RightChevronIcon, UpArrowIcon } from "@/components/icons";
 import { ImageBlock } from "@/components/image";
 import { Modal } from "@/components/modal";
 import { TypingIndicator } from "@/components/typing";
-import { typingVariants, variants } from "@/framer-variants";
+import { variants } from "@/framer-variants";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 
 const LeftWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -58,11 +58,19 @@ export default function Page() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    if (state.modalState) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [state.modalState]);
+
   const handleModalClick = (val?: string) => {
     dispatch({ type: "toggleModal" });
   };
   return (
-    <div className="w-full max-w-[390px] flex flex-col items-center sm:relative">
+    <div className="w-full max-w-[390px] flex flex-col items-center">
       <LeftWrapper>
         <ImageBlock />
         <BubbleMessage custom={2}>Hey, Umesh Jain here</BubbleMessage>

@@ -35,6 +35,9 @@ body {
 * {
   user-select: none;
 }
+.prose * {
+  user-select: text;
+}
 @layer utilities {
   @variants responsive {
     /* Hide scrollbar for Chrome, Safari and Opera */
