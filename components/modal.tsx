@@ -1,5 +1,6 @@
 import { useFetchContent } from "@/hooks/useFetchContent";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
+import { useState } from "react";
 import { CloseIcon } from "./icons";
 
 const Modal = (props: {
@@ -7,16 +8,41 @@ const Modal = (props: {
   title: string;
   file: string;
 }) => {
-  const MODAL_MIN_HEIGHT = 500;
+  const { handleModalClick, title, file } = props;
+
+  const [modalState, setModalState] = useState<"initial" | "full">("initial");
+
+  const MODAL_MIN_HEIGHT = window.innerHeight * 0.6;
   const MODAL_MAX_HEIGHT = window.innerHeight;
-  const content = useFetchContent(props.file);
+  const content = useFetchContent(file);
   const y = useMotionValue(0);
   const height = useTransform(y, (y) => {
-    if (MODAL_MIN_HEIGHT - y >= MODAL_MAX_HEIGHT) {
-      return `${MODAL_MAX_HEIGHT}px`;
+    switch (modalState) {
+      case "initial":
+        if (MODAL_MIN_HEIGHT - y >= MODAL_MAX_HEIGHT) {
+          setModalState("full");
+          return `${MODAL_MAX_HEIGHT}px`;
+        }
+        return `${MODAL_MIN_HEIGHT - y}px`;
+      case "full":
+        if (y <= 0) {
+          return `${MODAL_MAX_HEIGHT}px`;
+        } else if (y >= 0 && y <= 100) {
+          return `${MODAL_MAX_HEIGHT - y}px`;
+        } else {
+          setModalState("initial");
+          return `${MODAL_MIN_HEIGHT - y}px`;
+        }
     }
-    return `${MODAL_MIN_HEIGHT - y}px`;
   });
+
+  const handlePandEnd = (e: PointerEvent, info: PanInfo) => {
+    if (info.offset.y < -50) {
+      y.set(-1000);
+    } else {
+      y.set(0);
+    }
+  };
 
   return (
     <>
@@ -40,27 +66,23 @@ const Modal = (props: {
         onPan={(e, info) => {
           y.set(info.offset.y);
         }}
-        onPanEnd={(e, info) => {
-          if (info.offset.y < -50) {
-            y.set(-300);
-          } else {
-            y.set(0);
-          }
-        }}
-        drag="y"
-        dragConstraints={{ top: 0, bottom: 0 }}
-        dragElastic={0}
+        onPanEnd={handlePandEnd}
         className="absolute bottom-0 left-[50%] !-translate-x-1/2 w-full max-w-[390px] overflow-auto bg-zinc-50 rounded-2xl no-scrollbar shadow-default z-20"
       >
-        <motion.div className="flex items-center justify-between p-4 bg-zinc-50 dark:bg-zinc-100 sticky top-0 after:content-[''] after:absolute after:top-1 after:left-[50%] after:translate-x-[-50%] after:w-8 after:h-1 after:rounded-2xl after:bg-zinc-400">
-          <div className="font-bold text-xl text-zinc-900">{props.title}</div>
-          <span onClick={props.handleModalClick} className="cursor-pointer">
+        <motion.div
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={0}
+          className="flex items-center justify-between p-4 bg-zinc-50 dark:bg-zinc-100 sticky top-0 after:content-[''] after:absolute after:top-1 after:left-[50%] after:translate-x-[-50%] after:w-8 after:h-1 after:rounded-2xl after:bg-zinc-400"
+        >
+          <div className="font-bold text-xl text-zinc-900">{title}</div>
+          <span onClick={handleModalClick} className="cursor-pointer">
             <CloseIcon />
           </span>
         </motion.div>
         <div className="p-4">
           <div
-            className="prose prose-sm lg:prose-base dark:prose-invert"
+            className="prose dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>

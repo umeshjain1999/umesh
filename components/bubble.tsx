@@ -28,7 +28,7 @@ const BubbleMessage = (props: BUBBLE_PROP) => {
       >
         <a
           className={cn(
-            "px-3 py-1 rounded-2xl bg-zinc-200 text-zinc-800",
+            "px-4 py-1.5 rounded-2xl bg-zinc-200 text-zinc-800",
             className
           )}
           {...rest}
@@ -46,7 +46,7 @@ const BubbleMessage = (props: BUBBLE_PROP) => {
       whileTap="whileTap"
       custom={custom}
       className={cn(
-        "max-w-[80%] w-fit bg-zinc-200 text-zinc-800 rounded-2xl px-3 py-1 text-sm font-medium",
+        "max-w-[80%] w-fit bg-zinc-200 text-zinc-800 rounded-2xl px-4 py-1.5 text-sm font-medium",
         className
       )}
     >
