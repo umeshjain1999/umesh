@@ -14,9 +14,6 @@ const Modal = (props: {
   const y = useMotionValue(0);
 
   const height = useTransform(y, (y) => {
-    if (MODAL_MAX_HEIGHT - y > MODAL_MAX_HEIGHT) {
-      return `${MODAL_MAX_HEIGHT}px`;
-    }
     return `${MODAL_MAX_HEIGHT - y}px`;
   });
 
@@ -48,6 +45,9 @@ const Modal = (props: {
           bounce: 0.3,
         }}
         onPan={(e, info) => {
+          if (MODAL_MAX_HEIGHT - info.offset.y > MODAL_MAX_HEIGHT) {
+            return;
+          }
           y.set(info.offset.y);
         }}
         onPanEnd={handlePandEnd}
