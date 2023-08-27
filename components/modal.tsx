@@ -1,6 +1,5 @@
 import { useFetchContent } from "@/hooks/useFetchContent";
 import { PanInfo, motion, useMotionValue, useTransform } from "framer-motion";
-import { useState } from "react";
 import { CloseIcon } from "./icons";
 
 const Modal = (props: {
@@ -10,35 +9,20 @@ const Modal = (props: {
 }) => {
   const { handleModalClick, title, file } = props;
 
-  const [modalState, setModalState] = useState<"initial" | "full">("initial");
-
-  const MODAL_MIN_HEIGHT = window.innerHeight * 0.6;
-  const MODAL_MAX_HEIGHT = window.innerHeight;
+  const MODAL_MAX_HEIGHT = window.innerHeight * 0.95;
   const content = useFetchContent(file);
   const y = useMotionValue(0);
+
   const height = useTransform(y, (y) => {
-    switch (modalState) {
-      case "initial":
-        if (MODAL_MIN_HEIGHT - y >= MODAL_MAX_HEIGHT) {
-          setModalState("full");
-          return `${MODAL_MAX_HEIGHT}px`;
-        }
-        return `${MODAL_MIN_HEIGHT - y}px`;
-      case "full":
-        if (y <= 0) {
-          return `${MODAL_MAX_HEIGHT}px`;
-        } else if (y >= 0 && y <= 100) {
-          return `${MODAL_MAX_HEIGHT - y}px`;
-        } else {
-          setModalState("initial");
-          return `${MODAL_MIN_HEIGHT - y}px`;
-        }
+    if (MODAL_MAX_HEIGHT - y > MODAL_MAX_HEIGHT) {
+      return `${MODAL_MAX_HEIGHT}px`;
     }
+    return `${MODAL_MAX_HEIGHT - y}px`;
   });
 
   const handlePandEnd = (e: PointerEvent, info: PanInfo) => {
-    if (info.offset.y < -50) {
-      y.set(-1000);
+    if (info.offset.y > 200) {
+      handleModalClick();
     } else {
       y.set(0);
     }
@@ -53,7 +37,7 @@ const Modal = (props: {
           height: 0,
         }}
         animate={{
-          height: `${MODAL_MIN_HEIGHT}px`,
+          height: `${MODAL_MAX_HEIGHT}px`,
         }}
         exit={{
           height: 0,
