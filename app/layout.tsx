@@ -1,8 +1,7 @@
-import "./globals.css";
 import { cn } from "@/utils";
-import { Inter } from "next/font/google";
-import Link from "next/link";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(inter.className, "min-h-screen flex flex-col relative")}
+        className={cn(inter.className, "min-h-screen flex flex-col relative bg-zinc-50")}
       >
-        <main className="p-4 sm:p-8 flex justify-center flex-1">
+        <main vaul-drawer-wrapper="" className="p-4 sm:p-8 flex justify-center flex-1 bg-zinc-50">
           {children}
         </main>
-        <footer className="flex justify-center gap-4 p-4 text-zinc-500 text-sm transition-colors duration-300">
+        <footer className="flex justify-center gap-4 p-4 text-zinc-500 text-sm transition-colors duration-300 bg-zinc-50">
           <a
             href="https://github.com/umeshjain1999"
             target="_blank"
