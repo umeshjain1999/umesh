@@ -28,17 +28,17 @@ Dialer Project:
 
 <a href="https://www.media.net/" target="_blank"><img src="../images/media.svg" alt="media.net" width="120" /></a>
 
-- Developed multiple interactive websites from UX design and successfully integrated ads from various companies. These production-ready websites are now generating revenue.
+- **Developed multiple interactive websites**: Developed interactive websites from UX design and seamlessly integrated ads from various companies, resulting in revenue generation.
 
-- Optimized each website to reduce page load time, ensuring seamless customer interactions and faster ad presentation.
+- **Optimized website performance**: Reduced page load time for improved customer interactions and faster ad presentation.
 
-- Enhanced team efficiency by creating an application that enables faster website template creation.
+- **Enhanced team efficiency**: Created an application for faster website template creation, boosting team productivity.
 
-- Contributed in an application which helps in creating boilerplate of websites.
+- **Contributed to website automation**: Collaborated on an application automating website boilerplate creation, streamlining website replication process.
 
-- Contributed to the internal interview application, facilitating smoother handling of coding challenges for interviewees.
+- **Improved interview process**: Assisted in an internal interview application for smoother coding challenge handling for interviewees.
 
-- Worked with different teams at media.net, engaging with the business team to understand operations and provide effective solutions. Conducted research on website optimization and centralized of code.
+- **Collaborated cross-functionally**: Engaged with media.net teams, including business operations, to provide effective solutions. Conducted research on website optimization and code centralization.
 
 ####Side Projects:
 
@@ -48,11 +48,11 @@ Dialer Project:
 
 Hackathon project
 
-- Emergency services in chaotic situations: developed a prototype with team in 24hrs for the TSEC Hackathon'18
+- Emergency services in chaotic situations: developed a prototype with team in 24hrs for the TSEC Hackathon'18, securing the runner-up position
 - The project aimed to address a real-life problem of alerting emergency services and residents in areas affected by chaotic situations caused by natural or man-made disasters.
   </br>
   <a href="https://github.com/umeshjain1999/DebugThugs" target="_blank">[Code]</a>
 
 More projects <a href="https://github.com/umeshjain1999?tab=repositories" target="_blank">_here_</a>
 
-<div style="font-size:0.7rem;"> Last Updated <span style="text-decoration:underline;text-decoration-style: dotted;">13 August, 2023</span> </div>
+<div style="font-size:0.7rem;"> Last Updated <span style="text-decoration:underline;text-decoration-style: dotted;">03 March, 2024</span> </div>
